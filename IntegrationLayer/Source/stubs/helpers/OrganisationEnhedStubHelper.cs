@@ -210,7 +210,7 @@ namespace Organisation.IntegrationLayer
                 int idx = 0;
                 OpgaverFlerRelationType[] opgaverTypes = new OpgaverFlerRelationType[newSize];
 
-                int currentMaxIdx = 1;
+                int currentMaxIdx = 0;
                 // copy existing (but set a stop-date on those flagged for removal)
                 if (registration.RelationListe?.Opgaver != null)
                 {
@@ -247,7 +247,7 @@ namespace Organisation.IntegrationLayer
                     opgaveType.ReferenceID = tilknytteFunktionId;
                     opgaveType.Virkning = virkning;
 
-                    opgaveType.Indeks = (currentMaxIdx++).ToString();
+                    opgaveType.Indeks = (++currentMaxIdx).ToString();
 
                     // Ansvarlig
                     opgaveType.Rolle = new UuidLabelInputType();
